@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -189,7 +189,7 @@
                 <div class="rightsection"><img src="learn.png" alt=""></div>
             </section>
         </main> <!-- Element to contain animated typing -->
-        <hr>
+        <!-- <hr>
         <section class="secondsection">
             <h1>Work</h1>
             <div class="box">
@@ -249,4 +249,496 @@
         </script>
 </body>
 
+
+</html> --> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website - Rajeev Kumar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Configuration Variables for easy theme adjustments in vanilla CSS */
+        :root {
+            --bg-color: #0d1117; 
+            --surface-color: #21262d; 
+            --text-color: #f0f6fc; 
+            --primary-color: #0969da; 
+            --secondary-color: #8b949e; 
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --base-font-size: 16px;
+        }
+
+        /* Base styles from the config */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: var(--base-font-size);
+            box-sizing: border-box;
+            min-height: 100vh;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom utility classes */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .skill-bar-inner {
+            transition: width 1s ease-in-out; 
+            background: linear-gradient(90deg, var(--primary-color), #1f6feb);
+        }
+        
+        /* Fade-In-Up Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .observe {
+            opacity: 0; 
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 1; 
+        }
+        
+        /* Typed.js cursor style */
+        .typed-cursor {
+            color: var(--text-color);
+            font-size: 1.5rem;
+        }
+
+        /* Mobile Menu Transitions */
+        #mobile-menu {
+            transition: transform 0.3s ease-out;
+            transform: translateX(100%); /* Start off-screen */
+        }
+        #mobile-menu.open {
+            transform: translateX(0); /* Slide in */
+        }
+
+        /* Social Icon Hover */
+        .social-icon-hover {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon-hover:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="portfolio-container">
+        
+        <nav 
+            id="main-nav"
+            class="fixed top-0 w-full z-50 backdrop-blur-md border-b"
+            style="background-color: rgba(30, 41, 59, 0.584); border-color: rgba(9, 105, 218, 0.125);"
+        >
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <a href="#home" class="font-bold cursor-pointer text-xl" style="color: var(--primary-color);">
+                        Rajeev Kumar
+                    </a>
+                    
+                    <div class="hidden md:flex space-x-8 text-base" id="nav-links">
+                        <a href="#home" data-section="home" class="nav-link capitalize transition-colors duration-200 hover:opacity-80 text-white">home</a>
+                        <a href="#about" data-section="about" class="nav-link capitalize transition-colors duration-200 hover:opacity-80 text-white">about</a>
+                        <a href="#projects" data-section="projects" class="nav-link capitalize transition-colors duration-200 hover:opacity-80 text-white">projects</a>
+                        <a href="#skills" data-section="skills" class="nav-link capitalize transition-colors duration-200 hover:opacity-80 text-white">skills</a>
+                        <a href="#contact" data-section="contact" class="nav-link capitalize transition-colors duration-200 hover:opacity-80 text-white">contact</a>
+                    </div>
+
+                    <button id="mobile-menu-button" class="md:hidden text-2xl p-2 rounded-lg" style="color: var(--primary-color);">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="mobile-menu" 
+             class="fixed top-0 right-0 h-full w-64 p-8 pt-20 shadow-xl md:hidden z-40 flex flex-col items-start"
+             style="background-color: var(--surface-color); border-left: 2px solid var(--primary-color);"
+        >
+            <button id="close-menu-button" class="absolute top-4 right-4 text-3xl p-1" style="color: var(--primary-color);">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="flex flex-col space-y-6 text-xl">
+                <a href="#home" data-section="home" class="mobile-nav-link capitalize text-white hover:text-primary transition-colors">home</a>
+                <a href="#about" data-section="about" class="mobile-nav-link capitalize text-white hover:text-primary transition-colors">about</a>
+                <a href="#projects" data-section="projects" class="mobile-nav-link capitalize text-white hover:text-primary transition-colors">projects</a>
+                <a href="#skills" data-section="skills" class="mobile-nav-link capitalize text-white hover:text-primary transition-colors">skills</a>
+                <a href="#contact" data-section="contact" class="mobile-nav-link capitalize text-white hover:text-primary transition-colors">contact</a>
+            </div>
+        </div>
+
+
+        <section 
+            id="home" 
+            class="min-h-screen flex items-center justify-center pt-20 pb-16 text-white"
+            style="background-color: rgb(15, 23, 42);"
+        >
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="observe">
+                    <h1 class="font-bold mb-7 text-5xl sm:text-6xl">
+                        Rajeev Kumar
+                    </h1>
+                    <h2 class="mb-4 text-white opacity-90 text-2xl sm:text-3xl">
+                        <span id="typed-text" style="color: var(--primary-color);"></span>
+                    </h2>
+                    <p class="mb-12 opacity-80 max-w-2xl mx-auto text-lg">
+                        Creating beautiful and functional web experiences
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a 
+                            href="#projects"
+                            class="px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:transform hover:scale-105"
+                            style="background-color: var(--surface-color); color: var(--primary-color);"
+                        >
+                            View My Work
+                        </a>
+                        <a 
+                            href="#contact"
+                            class="contact-btn px-8 py-3 rounded-lg font-semibold border-2 border-white text-white transition-all duration-200 hover:bg-white hover:transform hover:scale-105"
+                        >
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="observe text-center mb-16">
+                    <h2 class="font-bold mb-4 text-4xl sm:text-5xl" style="color: var(--primary-color);">
+                        About Me
+                    </h2>
+                    <div class="w-24 h-1 mx-auto mb-8" style="background-color: var(--secondary-color);"></div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="observe">
+                        <div 
+                            class="w-64 h-64 mx-auto rounded-full flex items-center justify-center text-8xl"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            👨‍💻
+                        </div>
+                    </div>
+                    <div class="observe">
+                        <p class="mb-6 leading-relaxed text-lg">
+                            I'm a passionate developer with 5+ years of experience building modern web applications. I love turning complex problems into simple, beautiful designs.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-semibold mb-2" style="color: var(--primary-color);">Email</h4>
+                                <p>rajeev.kumar@example.com</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2" style="color: var(--primary-color);">Location</h4>
+                                <p>New Delhi, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section 
+            id="projects" 
+            class="py-20"
+            style="background-color: rgba(9, 105, 218, 0.05);"
+        >
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="observe text-center mb-16">
+                    <h2 class="font-bold mb-4 text-4xl sm:text-5xl" style="color: var(--primary-color);">My Projects</h2>
+                    <div class="w-24 h-1 mx-auto mb-8" style="background-color: var(--secondary-color);"></div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div 
+                        class="observe card-hover rounded-xl p-6 shadow-lg"
+                        style="background-color: var(--surface-color);"
+                    >
+                        <div 
+                            class="text-4xl mb-4 w-16 h-16 rounded-lg flex items-center justify-center"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            🛒
+                        </div>
+                        <h3 class="font-bold mb-3 text-xl" style="color: var(--primary-color);">E-Commerce Platform</h3>
+                        <p class="mb-4 opacity-80 text-sm">A modern e-commerce solution built with React and Node.js</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">React</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">Node.js</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">MongoDB</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">Stripe</span>
+                        </div>
+                    </div>
+                    <div 
+                        class="observe card-hover rounded-xl p-6 shadow-lg"
+                        style="background-color: var(--surface-color);"
+                    >
+                        <div 
+                            class="text-4xl mb-4 w-16 h-16 rounded-lg flex items-center justify-center"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            📋
+                        </div>
+                        <h3 class="font-bold mb-3 text-xl" style="color: var(--primary-color);">Task Management App</h3>
+                        <p class="mb-4 opacity-80 text-sm">Collaborative task management with real-time updates</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">React</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">Firebase</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">Material-UI</span>
+                        </div>
+                    </div>
+                    <div 
+                        class="observe card-hover rounded-xl p-6 shadow-lg"
+                        style="background-color: var(--surface-color);"
+                    >
+                        <div 
+                            class="text-4xl mb-4 w-16 h-16 rounded-lg flex items-center justify-center"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            🌤️
+                        </div>
+                        <h3 class="font-bold mb-3 text-xl" style="color: var(--primary-color);">Weather Dashboard</h3>
+                        <p class="mb-4 opacity-80 text-sm">Beautiful weather app with location-based forecasts</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">JavaScript</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">API Integration</span>
+                            <span class="px-3 py-1 rounded-full text-xs" style="background-color: rgba(9, 105, 218, 0.125); color: var(--primary-color);">CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="observe text-center mb-16">
+                    <h2 class="font-bold mb-4 text-4xl sm:text-5xl" style="color: var(--primary-color);">Skills & Expertise</h2>
+                    <div class="w-24 h-1 mx-auto mb-8" style="background-color: var(--secondary-color);"></div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div id="skills-list" class="grid gap-8">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section 
+            id="contact" 
+            class="py-20"
+            style="background-color: rgba(9, 105, 218, 0.05);"
+        >
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="observe text-center mb-16">
+                    <h2 class="font-bold mb-4 text-4xl sm:text-5xl" style="color: var(--primary-color);">Get In Touch</h2>
+                    <div class="w-24 h-1 mx-auto mb-8" style="background-color: var(--secondary-color);"></div>
+                    <p class="mb-12 opacity-80 text-lg">
+                        I'm always interested in new opportunities and collaborations.
+                    </p>
+                </div>
+                <div class="observe grid md:grid-cols-3 gap-8 text-center">
+                    <div class="rounded-xl p-8" style="background-color: var(--surface-color);">
+                        <div 
+                            class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            📧
+                        </div>
+                        <h3 class="font-bold mb-2 text-xl" style="color: var(--primary-color);">Email Me</h3>
+                        <p>rajeev.kumar@example.com</p>
+                    </div>
+                    <div class="rounded-xl p-8" style="background-color: var(--surface-color);">
+                        <div 
+                            class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            📍
+                        </div>
+                        <h3 class="font-bold mb-2 text-xl" style="color: var(--primary-color);">Location</h3>
+                        <p>New Delhi, India</p>
+                    </div>
+                     <div class="rounded-xl p-8" style="background-color: var(--surface-color);">
+                        <div 
+                            class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-2xl"
+                            style="background-color: rgba(9, 105, 218, 0.125);"
+                        >
+                            🌐
+                        </div>
+                        <h3 class="font-bold mb-2 text-xl" style="color: var(--primary-color);">Socials</h3>
+                        <div class="flex justify-center space-x-6 text-2xl">
+                            <a href="#" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-github"></i></a>
+                            <a href="#" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-8 text-center" style="background-color: var(--primary-color);">
+            <p class="text-white opacity-80 text-sm">
+                © 2024 Rajeev Kumar. Built with passion and code.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+            const skillsList = document.getElementById('skills-list');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+            const skillData = [
+                { name: "JavaScript", level: 90 }, { name: "React", level: 85 }, 
+                { name: "Node.js", level: 80 }, { name: "Python", level: 75 }, 
+                { name: "CSS/SCSS", level: 88 }, { name: "MongoDB", level: 70 }
+            ];
+
+            // --- 1. Mobile Navbar Toggle Logic ---
+            const toggleMobileMenu = () => {
+                mobileMenu.classList.toggle('open');
+            };
+
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            closeMenuButton.addEventListener('click', toggleMobileMenu);
+
+            // Close menu when a link is clicked (for smooth scroll)
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', toggleMobileMenu);
+            });
+
+
+            // --- 2. Typed.js Initialization ---
+            const typedElement = document.getElementById('typed-text');
+            if (typedElement) {
+                new Typed('#typed-text', {
+                    strings: ['Full Stack Developer', 'Web Stack Developer', 'Hacker', 'UX/UI designer', 'Student', 'AI/ML'],
+                    typeSpeed: 50,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|',
+                });
+            }
+
+            // --- 3. Dynamic Skills Rendering ---
+            if (skillsList) {
+                skillsList.innerHTML = skillData.map(skill => `
+                    <div class="observe">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-semibold">${skill.name}</span>
+                            <span style="color: var(--primary-color);">${skill.level}%</span>
+                        </div>
+                        <div class="w-full h-3 rounded-full" style="background-color: rgba(9, 105, 218, 0.125);">
+                            <div 
+                                class="skill-bar-inner h-3 rounded-full"
+                                data-level="${skill.level}"
+                                style="width: 0%;"
+                            ></div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // --- 4. Intersection Observer (Scroll Spy and Animations) ---
+            const allSections = ['home', 'about', 'projects', 'skills', 'contact'];
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50% 0px', 
+                threshold: 0
+            };
+
+            const sectionObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const currentSectionId = entry.target.id;
+                        
+                        // Update active nav link (Desktop)
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('data-section') === currentSectionId) {
+                                link.style.color = primaryColor;
+                            } else {
+                                link.style.color = 'var(--text-color)';
+                            }
+                        });
+
+                        // Update active nav link (Mobile) - OPTIONAL: you can add style updates here too if needed
+                        
+                        // Trigger skill bar animation
+                        if (currentSectionId === 'skills') {
+                            const skillBars = document.querySelectorAll('#skills-list .skill-bar-inner');
+                            skillBars.forEach(bar => {
+                                const level = bar.getAttribute('data-level');
+                                bar.style.width = `${level}%`;
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all main sections
+            allSections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    sectionObserver.observe(section);
+                }
+            });
+
+            // Observer for fade-in-up effect on all '.observe' elements
+            const fadeInUpObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-up');
+                        fadeInUpObserver.unobserve(entry.target); 
+                    }
+                });
+            }, { threshold: 0.1 }); 
+
+            document.querySelectorAll('.observe').forEach(el => {
+                fadeInUpObserver.observe(el);
+            });
+        });
+
+        // Event listener for the "Get In Touch" button hover effect
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.matches('.contact-btn')) {
+                const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim();
+                e.target.style.color = primaryColor;
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.matches('.contact-btn')) {
+                e.target.style.color = 'white';
+            }
+        });
+    </script>
+</body>
 </html>
