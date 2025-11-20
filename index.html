@@ -257,7 +257,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website - Rajeev Kumar</title>
+    <title> Rajeev Kumar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -336,7 +336,6 @@
             transform: translateX(0); /* Slide in */
         }
 
-        /* Social Icon Hover */
         .social-icon-hover {
             transition: color 0.3s ease, transform 0.3s ease;
         }
@@ -351,8 +350,8 @@
         
         <nav 
             id="main-nav"
-            class="fixed top-0 w-full z-50 backdrop-blur-md border-b"
-            style="background-color: rgba(30, 41, 59, 0.584); border-color: rgba(9, 105, 218, 0.125);"
+            class="fixed top-0 w-full z-50 backdrop-blur-md border-b "
+            style="background-color: rgba(30, 41, 59, 0.584); border-color: rgba(253, 254, 255, 0.125);"
         >
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
@@ -368,18 +367,18 @@
                         <a href="#contact" data-section="contact" class="nav-link capitalize transition-colors duration-200 hover:opacity-80 text-white">contact</a>
                     </div>
 
-                    <button id="mobile-menu-button" class="md:hidden text-2xl p-2 rounded-lg" style="color: var(--primary-color);">
+                    <button id="mobile-menu-button" class="md:hidden text-2xl p-2 rounded-lg" style="color: #afb7c1;">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
         </nav>
-
+<!-- toggle click effect -->
         <div id="mobile-menu" 
-             class="fixed top-0 right-0 h-full w-64 p-8 pt-20 shadow-xl md:hidden z-40 flex flex-col items-start"
-             style="background-color: var(--surface-color); border-left: 2px solid var(--primary-color);"
-        >
-            <button id="close-menu-button" class="absolute top-4 right-4 text-3xl p-1" style="color: var(--primary-color);">
+     class="fixed top-0 right-0 h-full w-64 p-8 pt-20 shadow-xl md:hidden z-40 flex flex-col items-start"
+     style="background-color: var(--surface-color); border-left: 2px solid #afb7c1;"
+>
+            <button id="close-menu-button" class="absolute top-4 right-4 text-3xl p-1 text-white" >
                 <i class="fas fa-times"></i>
             </button>
             <div class="flex flex-col space-y-6 text-xl">
@@ -445,18 +444,27 @@
                         </div>
                     </div>
                     <div class="observe">
-                        <p class="mb-6 leading-relaxed text-lg">
-                            I'm a passionate developer with 5+ years of experience building modern web applications. I love turning complex problems into simple, beautiful designs.
-                        </p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: var(--primary-color);">Email</h4>
-                                <p>rajeev.kumar@example.com</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-2" style="color: var(--primary-color);">Location</h4>
-                                <p>New Delhi, India</p>
-                            </div>
+                       <p class="mb-6 leading-relaxed text-lg">
+    I am a dedicated and passionate Full Stack Web Developer with hands-on experience 
+    in building modern, scalable, and user-friendly web applications using the MERN stack. 
+    I love exploring system design, backend architecture, API development,  
+    <br><br>
+    Currently, I am pursuing a <strong>BSc in Computer Science and Data Analytics from IIT Patna </strong>, 
+    and I have completed my graduation from <strong>LS College, Muzaffarpur</strong>. I am preparing for 
+    Web Developer roles and constantly enhancing my skills 
+
+<div class="grid grid-cols-2 gap-4">
+    
+    <div>
+        <h4 class="font-semibold mb-2 text-base" style="color: var(--primary-color);">Education</h4>
+        <p class="text-sm">BSc CS & Data Analytics – IIT Patna</p>
+    </div>
+    <div>
+        <h4 class="font-semibold mb-2 text-base" style="color: var(--primary-color);">Experience</h4>
+        <p class="text-sm">1+ Years in MERN & Full-Stack Development</p>
+    </div>
+</div>
+
                         </div>
                     </div>
                 </div>
@@ -589,9 +597,9 @@
                         </div>
                         <h3 class="font-bold mb-2 text-xl" style="color: var(--primary-color);">Socials</h3>
                         <div class="flex justify-center space-x-6 text-2xl">
-                            <a href="#" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-github"></i></a>
-                            <a href="www.linkedin.com/in/rajeev-kumar-nte" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/rajeev-nte" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/rajeev-kumar-nte" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com/rajeevp1_____/" target="_blank" class="social-icon-hover" style="color: var(--text-color);"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -639,7 +647,7 @@
             const typedElement = document.getElementById('typed-text');
             if (typedElement) {
                 new Typed('#typed-text', {
-                    strings: ['Full Stack Developer', 'Web Stack Developer', 'Hacker', 'UX/UI designer', 'Student', 'AI/ML'],
+                    strings: ['Full Stack Developer',  'Hacker', 'UX/UI designer', 'AI/ML'],
                     typeSpeed: 50,
                     loop: true,
                     showCursor: true,
@@ -742,4 +750,3 @@
     </script>
 </body>
 </html>
-
